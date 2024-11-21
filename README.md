@@ -18,7 +18,7 @@
   - Apresente uma lista paginada de fornecedores, com filtragem e ordenação.
 
 #### Migrations:
-///////Nome do banco de dados: 'provedor'
+///////Nome do banco de dados: 'fornecedor'
 Usuário:'root'
 Senha: vazia
 

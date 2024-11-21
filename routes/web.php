@@ -14,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [fornecedorController::class, 'index_create'])->name('fornecedor.cadastro') ;
+
+
+Route::get('/', [fornecedorController::class, 'index_create'])->name('fornecedor.create') ;
 Route::post('fornecedor/listar', [fornecedorController::class, 'salvar']) ;
-Route::get('fornecedor/listar', [fornecedorController::class, 'listarFORNECEDOR']) ;
+Route::get('fornecedor/listar', [fornecedorController::class, 'listarFORNECEDOR']) ->name('fornecedor.listar');
 Route::get('fornecedor/edit/{id}', [fornecedorController::class, 'editarFORNECEDOR']) ->name('fornecedor.edit');
 Route::put('fornecedor/listar/{id}', [fornecedorController::class, 'updateFORNECEDOR']) ->name('fornecedor.update');
 Route::delete('fornecedor/eliminar/{id}', [fornecedorController::class, 'eliminarFORNECEDOR'])->name('fornecedor.eliminar') ;

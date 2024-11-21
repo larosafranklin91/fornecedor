@@ -1,19 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!-- Scripts -->
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <!-- Styles -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-    <title>CADASTRO DE FORNECEDORES</title>
-</head>
-<body>
-    <h1>CRUD DE FORNECEDORES</h1>
+@extends ('fornecedorPrincipal')
+@section ('content')
+    <h1>CADASTRO</h1>
+	@if(old('insert'))
+<div class="alert alert-success">
+	<strong>ESTE FORNECEDOR JÁ ESTÁ CADASTRADO NESTE CPF OU CNPJ</strong>
+</div>
+@endif
 <form action="fornecedor/listar" method="POST">	
     @csrf
+    <input type="hidden" name="insert" value="insert">
 	<div class="form-group">
 		<label>NOME / NOME DA EMPRESA:</label>
 		<input type="text" name="name" class="form-control" />
@@ -42,7 +37,7 @@
         <span class="text-danger small">{{$message}}</span>
         @enderror
 	</div>	
-	<button type="submit" class="btn btn-success">Aceptar</button>
+	<button type="submit" class="btn btn-success">ACEPTAR</button>
+	<a class="btn btn-dark btn-info" href="{{route('fornecedor.listar')}}">LISTADO</a>
 </form>
-</body>
-</html>
+@endsection
